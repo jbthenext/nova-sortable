@@ -109,7 +109,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mixins: [laravel_nova__WEBPACK_IMPORTED_MODULE_0__.InteractsWithResourceInformation, _mixins_ReordersResources__WEBPACK_IMPORTED_MODULE_2__["default"]],
   components: {
-    Draggable: (vuedraggable__WEBPACK_IMPORTED_MODULE_1___default())
+    draggable: (vuedraggable__WEBPACK_IMPORTED_MODULE_1___default())
   },
   props: {
     authorizedToRelate: {
@@ -432,7 +432,9 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_4 = ["testId", "delete-resource", "restore-resource", "resource", "resource-name", "relationship-type", "via-relationship", "via-resource", "via-resource-id", "via-many-to-many", "checked", "actions-are-available", "actions-endpoint", "should-show-checkboxes", "update-selection-status", "onMoveToStart", "onMoveToEnd"];
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" test ");
+
+var _hoisted_5 = ["testId", "delete-resource", "restore-resource", "resource", "resource-name", "relationship-type", "via-relationship", "via-resource", "via-resource-id", "via-many-to-many", "checked", "actions-are-available", "actions-endpoint", "should-show-checkboxes", "update-selection-status", "onMoveToStart", "onMoveToEnd"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_sortable_icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("sortable-icon");
 
@@ -475,7 +477,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     );
   }), 256
   /* UNKEYED_FRAGMENT */
-  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Actions, View, Edit, Delete "), _hoisted_3])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_draggable, {
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Actions, View, Edit, Delete "), _hoisted_3])]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_draggable, {
     modelValue: _ctx.fakeResources,
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return _ctx.fakeResources = $event;
@@ -486,12 +488,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "item-key": _ctx.element.id.value
   }, {
     item: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
-      var element = _ref.element;
+      var element = _ref.element,
+          index = _ref.index;
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", {
         onActionExecuted: _cache[0] || (_cache[0] = function ($event) {
           return _ctx.$emit('actionExecuted');
         }),
-        testId: "".concat($props.resourceName, "-items-").concat(element.id),
+        testId: "".concat($props.resourceName, "-items-").concat(index),
         "delete-resource": $options.deleteResource,
         "restore-resource": $options.restoreResource,
         is: "resource-table-row",
@@ -515,7 +518,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }
       }, null, 40
       /* PROPS, HYDRATE_EVENTS */
-      , _hoisted_4)];
+      , _hoisted_5)];
     }),
     _: 1
     /* STABLE */

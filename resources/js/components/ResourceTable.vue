@@ -31,11 +31,12 @@
         <th>&nbsp;</th>
       </tr>
     </thead>
+    test
     <draggable v-model="fakeResources" tag="tbody" handle=".handle" @update="updateOrder" :item-key="element.id.value">
-      <template #item="{element}">
+      <template #item="{element, index}">
         <tr
           @actionExecuted="$emit('actionExecuted')"
-          :testId="`${resourceName}-items-${element.id}`"
+          :testId="`${resourceName}-items-${index}`"
           :delete-resource="deleteResource"
           :restore-resource="restoreResource"
           is="resource-table-row"
@@ -61,12 +62,12 @@
 
 <script>
 import { InteractsWithResourceInformation } from 'laravel-nova';
-import Draggable from 'vuedraggable';
+import draggable from 'vuedraggable';
 import ReordersResources from '../mixins/ReordersResources';
 
 export default {
   mixins: [InteractsWithResourceInformation, ReordersResources],
-  components: { Draggable },
+  components: { draggable },
   props: {
     authorizedToRelate: {
       type: Boolean,
