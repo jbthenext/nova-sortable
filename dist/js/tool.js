@@ -1209,7 +1209,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 Nova.booting(function (Vue, router, store) {
-  Vue.component('resource-table', _components_ResourceTable__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  Vue.component('ResourceTable', _components_ResourceTable__WEBPACK_IMPORTED_MODULE_0__["default"]);
   Vue.component('resource-table-row', _components_ResourceTableRow__WEBPACK_IMPORTED_MODULE_1__["default"]);
   Vue.component('reorder-buttons', _components_ReorderButtons__WEBPACK_IMPORTED_MODULE_2__["default"]);
 });
