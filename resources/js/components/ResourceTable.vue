@@ -120,6 +120,10 @@ export default {
     resourceCount: null,
   }),
 
+  mounted() {
+    console.log("mount");
+  },
+
   methods: {
     /**
      * Delete the given resource.
