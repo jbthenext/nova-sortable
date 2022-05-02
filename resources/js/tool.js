@@ -3,7 +3,8 @@ import ResourceTableRow from './components/ResourceTableRow';
 import ReorderButtons from './components/ReorderButtons';
 
 Nova.booting((Vue, router, store) => {
-  console.log(Vue);
+  Vue.config.devtools = true
+  console.log(Vue.config);
   Vue.component('resource-table', ResourceTable);
   Vue.component('resource-table-row', ResourceTableRow);
   Vue.component('reorder-buttons', ReorderButtons);
