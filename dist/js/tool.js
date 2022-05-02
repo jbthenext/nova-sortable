@@ -1210,7 +1210,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-app.config.devtools = true;
 Nova.booting(function (app, router, store) {
   app.component('resource-table', _components_ResourceTable__WEBPACK_IMPORTED_MODULE_0__["default"]);
   app.component('resource-table-row', _components_ResourceTableRow__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -1219,6 +1218,7 @@ Nova.booting(function (app, router, store) {
 
 var canSortResource = function canSortResource(resource) {
   var relationshipType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : void 0;
+  console.log(resource);
   if (resource.sort_not_allowed) return true; // Can see, but it's disabled
 
   var canSee = !!resource.has_sortable_trait;
