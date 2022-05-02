@@ -31,8 +31,7 @@
         <th>&nbsp;</th>
       </tr>
     </thead>
-    test
-    <draggable v-model="fakeResources" tag="tbody" handle=".handle" @update="updateOrder" :item-key="element.id.value">
+    <draggable v-model="fakeResources" tag="tbody" handle=".handle" @update="updateOrder" :item-key="id">
       <template #item="{element, index}">
         <tr
           @actionExecuted="$emit('actionExecuted')"
@@ -120,10 +119,6 @@ export default {
     selectAllMatching: false,
     resourceCount: null,
   }),
-
-  mounted() {
-    console.log("mount");
-  },
 
   methods: {
     /**
