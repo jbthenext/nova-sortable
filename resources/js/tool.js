@@ -4,8 +4,8 @@ import ReorderButtons from './components/ReorderButtons';
 
 Nova.booting((Vue, router, store) => {
   Vue.component('ResourceTable', ResourceTable);
-  Vue.component('resource-table-row', ResourceTableRow);
-  Vue.component('reorder-buttons', ReorderButtons);
+  Vue.component('ResourceTableRow', ResourceTableRow);
+  Vue.component('ReorderButtons', ReorderButtons);
 });
 
 const canSortResource = (resource, relationshipType = void 0) => {
