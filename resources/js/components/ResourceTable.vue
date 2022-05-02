@@ -31,30 +31,30 @@
         <th>&nbsp;</th>
       </tr>
     </thead>
-    <draggable v-model="fakeResources" tag="tbody" handle=".handle" @update="updateOrder">
-      <tr
-        v-for="(resource, index) in fakeResources"
-        @actionExecuted="$emit('actionExecuted')"
-        :testId="`${resourceName}-items-${index}`"
-        :key="resource.id.value"
-        :delete-resource="deleteResource"
-        :restore-resource="restoreResource"
-        is="resource-table-row"
-        :resource="resource"
-        :resource-name="resourceName"
-        :relationship-type="relationshipType"
-        :via-relationship="viaRelationship"
-        :via-resource="viaResource"
-        :via-resource-id="viaResourceId"
-        :via-many-to-many="viaManyToMany"
-        :checked="selectedResources.indexOf(resource) > -1"
-        :actions-are-available="actionsAreAvailable"
-        :actions-endpoint="actionsEndpoint"
-        :should-show-checkboxes="shouldShowCheckboxes"
-        :update-selection-status="updateSelectionStatus"
-        @moveToStart="moveToStart(resource)"
-        @moveToEnd="moveToEnd(resource)"
-      />
+    <draggable v-model="fakeResources" tag="tbody" handle=".handle" @update="updateOrder" :item-key="element.id.value">
+      <template #item="{element}">
+        <tr
+          @actionExecuted="$emit('actionExecuted')"
+          :testId="`${resourceName}-items-${element.id}`"
+          :delete-resource="deleteResource"
+          :restore-resource="restoreResource"
+          is="resource-table-row"
+          :resource="element"
+          :resource-name="resourceName"
+          :relationship-type="relationshipType"
+          :via-relationship="viaRelationship"
+          :via-resource="viaResource"
+          :via-resource-id="viaResourceId"
+          :via-many-to-many="viaManyToMany"
+          :checked="selectedResources.indexOf(element) > -1"
+          :actions-are-available="actionsAreAvailable"
+          :actions-endpoint="actionsEndpoint"
+          :should-show-checkboxes="shouldShowCheckboxes"
+          :update-selection-status="updateSelectionStatus"
+          @moveToStart="moveToStart(element)"
+          @moveToEnd="moveToEnd(element)"
+        />
+      </template>
     </draggable>
   </table>
 </template>

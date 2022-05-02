@@ -482,50 +482,47 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     tag: "tbody",
     handle: ".handle",
-    onUpdate: _ctx.updateOrder
+    onUpdate: _ctx.updateOrder,
+    "item-key": _ctx.element.id.value
   }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.fakeResources, function (resource, index) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
-          onActionExecuted: _cache[0] || (_cache[0] = function ($event) {
-            return _ctx.$emit('actionExecuted');
-          }),
-          testId: "".concat($props.resourceName, "-items-").concat(index),
-          key: resource.id.value,
-          "delete-resource": $options.deleteResource,
-          "restore-resource": $options.restoreResource,
-          is: "resource-table-row",
-          resource: resource,
-          "resource-name": $props.resourceName,
-          "relationship-type": $props.relationshipType,
-          "via-relationship": $props.viaRelationship,
-          "via-resource": $props.viaResource,
-          "via-resource-id": $props.viaResourceId,
-          "via-many-to-many": $options.viaManyToMany,
-          checked: $props.selectedResources.indexOf(resource) > -1,
-          "actions-are-available": $props.actionsAreAvailable,
-          "actions-endpoint": $props.actionsEndpoint,
-          "should-show-checkboxes": $props.shouldShowCheckboxes,
-          "update-selection-status": $props.updateSelectionStatus,
-          onMoveToStart: function onMoveToStart($event) {
-            return _ctx.moveToStart(resource);
-          },
-          onMoveToEnd: function onMoveToEnd($event) {
-            return _ctx.moveToEnd(resource);
-          }
-        }, null, 40
-        /* PROPS, HYDRATE_EVENTS */
-        , _hoisted_4);
-      }), 128
-      /* KEYED_FRAGMENT */
-      ))];
+    item: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
+      var element = _ref.element;
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", {
+        onActionExecuted: _cache[0] || (_cache[0] = function ($event) {
+          return _ctx.$emit('actionExecuted');
+        }),
+        testId: "".concat($props.resourceName, "-items-").concat(element.id),
+        "delete-resource": $options.deleteResource,
+        "restore-resource": $options.restoreResource,
+        is: "resource-table-row",
+        resource: element,
+        "resource-name": $props.resourceName,
+        "relationship-type": $props.relationshipType,
+        "via-relationship": $props.viaRelationship,
+        "via-resource": $props.viaResource,
+        "via-resource-id": $props.viaResourceId,
+        "via-many-to-many": $options.viaManyToMany,
+        checked: $props.selectedResources.indexOf(element) > -1,
+        "actions-are-available": $props.actionsAreAvailable,
+        "actions-endpoint": $props.actionsEndpoint,
+        "should-show-checkboxes": $props.shouldShowCheckboxes,
+        "update-selection-status": $props.updateSelectionStatus,
+        onMoveToStart: function onMoveToStart($event) {
+          return _ctx.moveToStart(element);
+        },
+        onMoveToEnd: function onMoveToEnd($event) {
+          return _ctx.moveToEnd(element);
+        }
+      }, null, 40
+      /* PROPS, HYDRATE_EVENTS */
+      , _hoisted_4)];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["modelValue", "onUpdate"])], 2
+  , ["modelValue", "onUpdate", "item-key"])], 2
   /* CLASS */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
 }
@@ -1214,8 +1211,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 Nova.booting(function (Vue, router, store) {
-  Vue.config.devtools = true;
-  console.log(Vue.config);
   Vue.component('resource-table', _components_ResourceTable__WEBPACK_IMPORTED_MODULE_0__["default"]);
   Vue.component('resource-table-row', _components_ResourceTableRow__WEBPACK_IMPORTED_MODULE_1__["default"]);
   Vue.component('reorder-buttons', _components_ReorderButtons__WEBPACK_IMPORTED_MODULE_2__["default"]);
@@ -1223,7 +1218,6 @@ Nova.booting(function (Vue, router, store) {
 
 var canSortResource = function canSortResource(resource) {
   var relationshipType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : void 0;
-  console.log(resource);
   if (resource.sort_not_allowed) return true; // Can see, but it's disabled
 
   var canSee = !!resource.has_sortable_trait;

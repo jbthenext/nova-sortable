@@ -3,15 +3,12 @@ import ResourceTableRow from './components/ResourceTableRow';
 import ReorderButtons from './components/ReorderButtons';
 
 Nova.booting((Vue, router, store) => {
-  Vue.config.devtools = true
-  console.log(Vue.config);
   Vue.component('resource-table', ResourceTable);
   Vue.component('resource-table-row', ResourceTableRow);
   Vue.component('reorder-buttons', ReorderButtons);
 });
 
 const canSortResource = (resource, relationshipType = void 0) => {
-  console.log(resource);
   if (resource.sort_not_allowed) return true; // Can see, but it's disabled
 
   let canSee = !!resource.has_sortable_trait;
