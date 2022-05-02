@@ -2,8 +2,9 @@ import ResourceTable from './components/ResourceTable';
 import ResourceTableRow from './components/ResourceTableRow';
 import ReorderButtons from './components/ReorderButtons';
 
+app.config.devtools = true
+
 Nova.booting((app, router, store) => {
-  app.config.devtools = true
   app.component('resource-table', ResourceTable);
   app.component('resource-table-row', ResourceTableRow);
   app.component('reorder-buttons', ReorderButtons);

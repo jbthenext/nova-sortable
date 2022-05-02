@@ -1210,8 +1210,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+app.config.devtools = true;
 Nova.booting(function (app, router, store) {
-  app.config.devtools = true;
   app.component('resource-table', _components_ResourceTable__WEBPACK_IMPORTED_MODULE_0__["default"]);
   app.component('resource-table-row', _components_ResourceTableRow__WEBPACK_IMPORTED_MODULE_1__["default"]);
   app.component('reorder-buttons', _components_ReorderButtons__WEBPACK_IMPORTED_MODULE_2__["default"]);
